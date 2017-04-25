@@ -51,7 +51,7 @@ var array2 = [9, 3, 4, 5, 1, -2 , 4, 5, 9, 13];
 console.log(array2.toString());
 
 /****************************/
-/*Quicksort Classe*/
+/*Quicksort Class*/
 /**************************/
 
 class SortAlgorithm{
