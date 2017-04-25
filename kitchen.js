@@ -141,7 +141,7 @@ let cola = new Product('Cola', 1, 1.50, 'Netto', "Getränk");
 myFridge.addSupply([cola, water]);
 myFridge.printSupply();
 
-//find a product and it's quantity
+//find a product and its quantity
 myFridge.printProductQuantity('Apples');
 
 
