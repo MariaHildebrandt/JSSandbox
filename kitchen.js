@@ -35,10 +35,31 @@ class Fridge{
         }
     }
     addSupply(value){
-        this._supply.push(value);
-    }
-    search(product){
+        if(Array.isArray(value)){
+            console.log( "is array");
+            for(var i = 0; i < value.length; i++){
+                this._supply.push(value[i]);
+            }
+            
+        }else{
+            this._supply.push(value);
+        }
         
+    }
+    printProductQuantity(name){
+        var quantity = -1;
+        var index = 0;
+        //search for supply array for product name
+        for(var i = 0; i < this._supply.length; i++){
+            if(this._supply[i].name === name){
+                quantity = this._supply[i].quantity;
+            }
+        }
+        if(quantity > -1){
+            console.log("There are " + quantity + " " + this._supply[index].name );
+        }else{
+            console.log("So such product");
+        }
     }
 }
 
@@ -87,10 +108,9 @@ class Drink extends Product{
 
 
 
-
-
-
-
+/***********/
+/*Examples*/
+/*********/
 
 //Supply Objects for Fridge
 let apple = new Fruit('Apples', 4, 1.50, 'Rewe', "Lebensmittel", "red");
@@ -110,10 +130,18 @@ myKitchen.retailer = 'Trends Ostermann';
 console.log(myKitchen.retailer);
 myFridge.printSupply();
 
-// add to supply
+// add to single Product to supply
 let butter = new Product('Butter', 4, 1.50, 'Rewe', "Lebensmittel");
 myFridge.addSupply(butter);
 myFridge.printSupply();
 
-//Search for Product with Binary Search
-myFridge.search('Apples');
+// add multiple Products to supply
+let water = new Product('Water', 8, 1.50, 'Netto', "Getränk");
+let cola = new Product('Cola', 1, 1.50, 'Netto', "Getränk");
+myFridge.addSupply([cola, water]);
+myFridge.printSupply();
+
+//find a product and it's quantity
+myFridge.printProductQuantity('Apples');
+
+
